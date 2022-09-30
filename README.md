@@ -1,6 +1,7 @@
-# Repo Name
+# Deepgram Translation Chrome Extension
 
-A repository template for open-source demos, guides and sample apps. Description here.
+A repository for creating a chrome extension that allows users to create transcripts and to translate transcripts.
+This is a JavaScript project that uses [Parcel](https://parceljs.org/) and [TypeScript](https://www.typescriptlang.org/).
 
 ## Development and Contributing
 
@@ -15,8 +16,9 @@ To make sure our community is safe for all, be sure to review and agree to our
 We love to hear from you so if you have questions, comments or find a bug in the
 project, let us know! You can either:
 
-- [Open an issue](https://github.com/deepgram/[reponame]/issues/new) on this repository
-- Tweet at us! We're [@DeepgramDevs on Twitter](https://twitter.com/DeepgramDevs)
+- [Start a Conversation on our Community Forum](https://github.com/deepgram/community/discussions/34)
+- [Open an issue](https://github.com/deepgram-devs/dg-translation-chrome-ext/issues/new) on this repository
+- Tweet at us! We're [@DeepgramAI on Twitter](https://twitter.com/DeepgramAI)
 
 ## Further Reading
 
