@@ -1,0 +1,19 @@
+{
+    "name": "dg-translation-chrome-ext",
+    "version": "1.0.0",
+    "description": "Transcription and translation chrome extension with Deepgram",
+    "main": "manifest.json",
+    "keywords": [
+        "a11y",
+        "accessibility",
+        "asr",
+        "speech-to-text"
+    ],
+    "repository": "https://github.com/deepgram-devs/dg-translation-chrome-ext.git",
+    "author": "BekahHW <bekah.hw@deepgram.com>",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "@parcel/config-webextension": "^2.7.0"
+    }
+}
