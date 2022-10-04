@@ -2,8 +2,10 @@
     "manifest_version": 3,
     "name": "Tab Transcription and Transpation",
     "version": "0.0.1",
-
+    "description": "Extension that provides live transcriptions and options for translation",
     "content_scripts": [{
+        "matches": ["*://github.com/parcel-bundler/*"],
+
         "js": ["contentScript.ts"]
     }]
 }
