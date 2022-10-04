@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Tab Transcription and Transpation",
+    "name": "Tab Transcription and Translation",
     "version": "0.0.1",
     "description": "Extension that provides live transcriptions and options for translation",
     "content_scripts": [{
