@@ -1,0 +1,9 @@
+{
+    "manifest_version": 3,
+    "name": "Tab Transcription and Transpation",
+    "version": "0.0.1",
+
+    "content_scripts": [{
+        "js": ["contentScript.ts"]
+    }]
+}

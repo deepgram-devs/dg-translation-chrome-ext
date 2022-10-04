@@ -15,5 +15,10 @@
     "private": false,
     "devDependencies": {
         "@parcel/config-webextension": "^2.7.0"
+    },
+    "dependencies": {
+        "build": "^0.1.4",
+        "manifest.json": "^1.2.0",
+        "parcel": "^2.7.0"
     }
 }
