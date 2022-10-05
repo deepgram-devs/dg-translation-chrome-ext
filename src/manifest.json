@@ -3,6 +3,8 @@
     "name": "Tab Transcription and Translation",
     "version": "0.0.1",
     "description": "Extension that provides live transcriptions and options for translation",
+    "host_permissions": ["*://*/"],
+    "permissions": ["storage", "tabs", "scripting"],
     "content_scripts": [{
         "matches": ["*://github.com/parcel-bundler/*"],
 

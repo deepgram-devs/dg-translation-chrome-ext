@@ -17,6 +17,13 @@ To make sure our community is safe for all, be sure to review and agree to our
 ## Getting Started
 For this project, you'll need a Deepgram API Key, which you can get [here](https://console.deepgram.com/signup?jump=keys).
 
+Before you get started, [learn how to load an unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked).
+
+
+- Run `yarn` to install the dependencies.
+- Run `yarn start` to start in development mode. 
+- To load this extension, navigate to `/dg-translation-chrome-ext/src`.
+
 
 ## Getting Help
 
