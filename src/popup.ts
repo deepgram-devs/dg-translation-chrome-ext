@@ -16,7 +16,11 @@ document.getElementById('start')?.addEventListener('click', async () => {
     })
 })
 
-
+document.getElementById('stop')?.addEventListener('click', async () => {
+    const tab = await getCurrentTab()
+    // if(!tab) return alert('Require an active tab')
+    chrome.tabs.sendMessage(tab.id, { message: 'stop' })
+})
 
 chrome.runtime.onMessage.addListener(({ message }) => {
     if(message == 'transcriptavailable') {
@@ -33,5 +37,6 @@ function showLatestTranscript() {
 async function getCurrentTab() {
     const queryOptions = { active: true, lastFocusedWindow: true }
     const [tab] = await chrome.tabs.query(queryOptions)
+    console.log({tab})
     return tab
 }
