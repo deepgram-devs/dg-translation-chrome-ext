@@ -8,6 +8,11 @@
     "content_scripts": [{
         "matches": ["*://github.com/parcel-bundler/*"],
 
-        "js": ["contentScript.ts"]
-    }]
+        "js": ["content-script.ts"]
+    }],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "social-logo.svg"
+
+    }
 }
