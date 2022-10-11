@@ -3,8 +3,8 @@ showLatestTranscript()
 
 document.getElementById('start')?.addEventListener('click', async () => {
     const api = document.getElementById('api-key')
+    const key = api.value
 
-      const key = api.value
       chrome.storage.local.set({ key }, () => {
         alert('Deepgram API Key Set')
       })
@@ -18,7 +18,7 @@ document.getElementById('start')?.addEventListener('click', async () => {
 
 document.getElementById('stop')?.addEventListener('click', async () => {
     const tab = await getCurrentTab()
-    // if(!tab) return alert('Require an active tab')
+    if(!tab) return alert('Require an active tab')
     chrome.tabs.sendMessage(tab.id, { message: 'stop' })
 })
 
@@ -37,6 +37,5 @@ function showLatestTranscript() {
 async function getCurrentTab() {
     const queryOptions = { active: true, lastFocusedWindow: true }
     const [tab] = await chrome.tabs.query(queryOptions)
-    console.log({tab})
     return tab
 }
