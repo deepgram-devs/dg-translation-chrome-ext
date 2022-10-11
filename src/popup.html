@@ -2,14 +2,57 @@
 <html lang="en">
 
 <head>
+    <style>
+        body {
+            box-sizing: border-box;
+            width: 36rem;
+            padding: 1rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .text-control {
+            display: flex;
+            align-items: baseline;
+        }
+        .text-control-label {
+            padding-right: 1rem;
+        }
+        .text-control-input {
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .button-controls {
+            display: flex;
+            outline: none;
+            border: none;
+            padding: 1rem 0;
+        }
+        .button {
+            flex-grow: 1;
+            margin-right: 1rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-transform: capitalize;
+        }
+        .button:last-child {
+            margin-right: 0;
+        }
+    </style>
 </head>
 
-<body style="padding: 1em;">
-    <label for="api-key">API Key</label>
-    <input type="text" name="api-key" required id="api-key">
-    <button button-name="start" id="start">Start Transcription</button>
-    <button id="stop">Stop transcription</button>
-    <p id="transcript"></p>
+<body>
+    <div class="controls">
+        <div class="text-control">
+            <label class="text-control-label" for="api-key">API Key</label>
+            <input class="text-control-input" type="text" name="api-key" required id="api-key">
+        </div>
+        <div class="button-controls">
+            <button class="button" button-name="start" id="start">Start Transcription</button>
+            <button class="button" button-name="stop" id="stop">Stop Transcription</button>
+        </div>
+    </div>
+    <p id="transcript" class="transcript"></p>
 
 
     <script src="popup.ts"></script>
