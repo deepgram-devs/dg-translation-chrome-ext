@@ -1,9 +1,9 @@
 showLatestTranscript()
 
-
 document.getElementById('start')?.addEventListener('click', async () => {
-    const api = document.getElementById('api-key')
-    const key = api.value
+    const api = document.getElementById('api-key') as HTMLInputElement | null
+
+    const key = api?.value
 
       chrome.storage.local.set({ key }, () => {
         alert('Deepgram API Key Set')
@@ -30,7 +30,9 @@ chrome.runtime.onMessage.addListener(({ message }) => {
 
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {
-        document.getElementById('transcript').innerHTML = transcript
+       let displayTranscript = document.getElementById('transcript')?.innerHTML  
+       
+       displayTranscript = transcript
     })
 }
 
