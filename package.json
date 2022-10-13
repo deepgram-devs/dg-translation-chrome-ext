@@ -21,6 +21,7 @@
         "build": "parcel build src/manifest.json --config @parcel/config-webextension"
     },
     "dependencies": {
+        "@types/chrome": "^0.0.197",
         "build": "^0.1.4",
         "manifest.json": "^1.2.0",
         "parcel": "^2.7.0"
