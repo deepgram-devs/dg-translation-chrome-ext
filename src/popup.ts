@@ -41,3 +41,12 @@ async function getCurrentTab() {
     const [tab] = await chrome.tabs.query(queryOptions)
     return tab
 }
+
+const togglePassword = document.getElementById('togglePassword')
+const APIKey = document.getElementById('api-key')
+
+togglePassword?.addEventListener('click', function(){
+    const type = APIKey?.getAttribute('type') === 'password' ? 'text' : 'password'
+    APIKey?.setAttribute('type', type)
+    this.classList.toggle('fa-eye')
+})
