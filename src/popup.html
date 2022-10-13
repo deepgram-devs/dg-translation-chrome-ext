@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             box-sizing: border-box;
@@ -21,6 +22,7 @@
             flex-grow: 1;
             font-size: 1rem;
             line-height: 1.7;
+            position: relative;
         }
         .button-controls {
             display: flex;
@@ -38,6 +40,11 @@
         .button:last-child {
             margin-right: 0;
         }
+        #togglePassword{
+            position: absolute;
+            right: 30px;
+            top: 32px;
+        }
     </style>
 </head>
 
@@ -45,7 +52,8 @@
     <div class="controls">
         <div class="text-control">
             <label class="text-control-label" for="api-key">API Key</label>
-            <input class="text-control-input" type="text" name="api-key" required id="api-key">
+            <input class="text-control-input" type="password" name="api-key" required id="api-key">
+            <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
         </div>
         <div class="button-controls">
             <button class="button" button-name="start" id="start">Start Transcription</button>
@@ -54,8 +62,8 @@
     </div>
     <p id="transcript" class="transcript"></p>
 
-
-    <script src="popup.ts"></script>
+    
+    <script  src="popup.ts"></script>
 </body>
 
 </html>
