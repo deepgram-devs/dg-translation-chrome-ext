@@ -15,14 +15,23 @@ To make sure our community is safe for all, be sure to review and agree to our
 [Contribution](./CONTRIBUTING.md) guidelines for more information.
 
 ## Getting Started
-For this project, you'll need a Deepgram API Key, which you can get [here](https://console.deepgram.com/signup?jump=keys).
+### Install the extension
+
 
 Before you get started, [learn how to load an unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked).
 
 
 - Run `yarn` to install the dependencies.
+- Run `yarn build`. 
+- To load this extension unpacked, navigate to `/dg-translation-chrome-ext/dist`.
+
+### Install for development
+For this project, you'll need a Deepgram API Key, which you can get [here](https://console.deepgram.com/signup?jump=keys). You can choose Admin or Owner for your API key.
+
+- Run `yarn` to install the dependencies.
 - Run `yarn start` to start in development mode. 
-- To load this extension, navigate to `/dg-translation-chrome-ext/src`.
+- Load from the `dist` folder.
+- To run this extension, navigate to the tab you want transcribed. Open the extension, add your API key to the input, and click "Start Transcription". Make sure you select the tab you want transcribed and share the tab audio.
 
 
 ## Getting Help
