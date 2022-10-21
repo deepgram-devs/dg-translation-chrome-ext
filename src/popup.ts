@@ -12,7 +12,6 @@ document.getElementById('start')?.addEventListener('click', async () => {
       })
     const tab = await getCurrentTab()
     if(!tab) return alert('Require an active tab')
-    console.log({tab})
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: content,

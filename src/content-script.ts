@@ -35,7 +35,6 @@ navigator.mediaDevices.getDisplayMedia({ video: true, audio: true }).then((strea
         const received = JSON.parse(message.data)
         const transcript = received.channel.alternatives[0].transcript
 
-        console.log('transcript:', transcript)
         if (transcript) {
             chrome.storage.local.get('transcript', data => {
                 chrome.storage.local.set({ transcript: data.transcript += ' ' + transcript })
