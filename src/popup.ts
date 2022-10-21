@@ -12,6 +12,7 @@ document.getElementById('start')?.addEventListener('click', async () => {
       })
     const tab = await getCurrentTab()
     if(!tab) return alert('Require an active tab')
+    console.log({tab})
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: content,
@@ -32,15 +33,14 @@ chrome.runtime.onMessage.addListener(({ message }) => {
 
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {
-       let displayTranscript = document.getElementById('transcript')?.innerHTML
-
-       displayTranscript = transcript
+       document.getElementById('transcript').innerHTML = transcript
     })
 }
 
 async function getCurrentTab() {
     const queryOptions = { active: true, lastFocusedWindow: true }
     const [tab] = await chrome.tabs.query(queryOptions)
+    console.log({tab})
     return tab
 }
 
