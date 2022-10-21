@@ -1,3 +1,5 @@
+import { content } from './content-script';
+
 showLatestTranscript()
 
 document.getElementById('start')?.addEventListener('click', async () => {
@@ -12,7 +14,7 @@ document.getElementById('start')?.addEventListener('click', async () => {
     if(!tab) return alert('Require an active tab')
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        files: ["content-script.ts"]
+        func: content,
     })
 })
 
@@ -30,8 +32,8 @@ chrome.runtime.onMessage.addListener(({ message }) => {
 
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {
-       let displayTranscript = document.getElementById('transcript')?.innerHTML  
-       
+       let displayTranscript = document.getElementById('transcript')?.innerHTML
+
        displayTranscript = transcript
     })
 }
