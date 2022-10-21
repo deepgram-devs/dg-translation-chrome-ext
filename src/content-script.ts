@@ -1,3 +1,5 @@
+export const content = () => {
+
 let apiKey
 let socket
 chrome.storage.local.set({ transcript: '' })
@@ -49,3 +51,4 @@ chrome.runtime.onMessage.addListener(({ message }) => {
         alert('Transcription ended')
     }
 })
+};
