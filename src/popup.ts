@@ -32,9 +32,18 @@ chrome.runtime.onMessage.addListener(({ message }) => {
 
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {
-       document.getElementById('transcript').innerHTML = transcript
+       document.getElementById('transcript').innerHTML = transcript;
+       transcript && document.getElementById('clear')?.removeAttribute('disabled');
     })
 }
+
+function clearTranscript() {
+    chrome.storage.local.set({"transcript": ""});
+    document.getElementById('transcript').innerHTML = "";
+    document.getElementById('clear').disabled = true;
+}
+
+document.getElementById('clear')?.addEventListener('click', () => clearTranscript())
 
 async function getCurrentTab() {
     const queryOptions = { active: true, lastFocusedWindow: true }
