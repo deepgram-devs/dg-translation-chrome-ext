@@ -1,0 +1,53 @@
+name: Feature Request
+description: Let us know what cool additions or changes you would like.
+labels: ['✨ enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for filling out our feature request form!
+
+        ![Make a Suggestion!](https://media.giphy.com/media/oYapDjZA6bnrQAwbi6/giphy.gif)
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered.
+      options:
+        - label: I have searched the existing issues
+          required: true
+  - type: textarea
+    id: proposed-changes
+    attributes:
+      label: Proposed Changes
+      description: Provide a detailed description of the change or addition you are proposing?
+      placeholder: Tell us what you want to see!
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why is this change important to you? How would you use it? How can it benefit other users?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Possible Implementation
+      description: Not obligatory, but suggest an idea for implementing addition or change
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Other Information
+      description: Anything else we should know?
+      placeholder: A detailed explanation, related issues, links for us to have context, eg. stack overflow, codepen, etc
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/deepgram-devs/dg-translation-chrome-ext/commit/cbb9b1ae572ccbac3aa3b723e0ee5ca513d1aeb8)
+      options:
+        - label: I've read the Code of Conduct and understand my responsibilities as a member of the Deepgram community
+          required: true
