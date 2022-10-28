@@ -7,7 +7,7 @@ body:
       value: |
         # Thank you for filling out our feature request form!
 
-        ![Make a Suggestion!](https://media.giphy.com/media/ge3SJPKwPdZSClGEua/giphy.gif)
+        ![Make a Suggestion!](https://media.giphy.com/media/oYapDjZA6bnrQAwbi6/giphy.gif)
   - type: textarea
     id: proposed-changes
     attributes:
