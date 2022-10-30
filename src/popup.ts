@@ -1,15 +1,9 @@
 import { content } from './content-script';
 
+loadApiKey()
 showLatestTranscript()
 
 document.getElementById('start')?.addEventListener('click', async () => {
-    const api = document.getElementById('api-key') as HTMLInputElement | null
-
-    const key = api?.value
-
-      chrome.storage.local.set({ key }, () => {
-        alert('Deepgram API Key Set')
-      })
     const tab = await getCurrentTab()
     if(!tab) return alert('Require an active tab')
     chrome.scripting.executeScript({
@@ -29,6 +23,15 @@ chrome.runtime.onMessage.addListener(({ message }) => {
         showLatestTranscript()
     }
 })
+
+function loadApiKey() {
+    chrome.storage.local.get('key').then(({ key }) => {
+        const apiKeyElem = document.getElementById('api-key') as HTMLInputElement | null
+        if (apiKeyElem) {
+            apiKeyElem.value = key
+        }
+    })
+}
 
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {

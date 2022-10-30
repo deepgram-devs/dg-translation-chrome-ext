@@ -1,7 +1,27 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Deepgram Transcript and Translation Options</title>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Deepgram Transcript and Translation Options</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .password-control {
+            position: relative;
+        }
+        .password-control-toggle {
+            position: relative;
+            left: -25px;
+        }
+        .options-save-message {
+            display: none;
+        }
+        .options-save-message--active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
 <form id="options-form">
     <h1>About</h1>
 	<p>
@@ -12,15 +32,17 @@
 
 	<hr>
 
-        <h1>Get started</h1>
-        <p>
-		<label>
-			<strong>🔑 Deepgram API key</strong> 
-			<input type="text" name="apiKey" placeholder=" " spellcheck="false" autocomplete="off" autocapitalize="off">
-			<span id="validation"></span>
-		</label>
-        <small>If you don't have an API key, you can find one <a id="get-API-key" href="https://console.deepgram.com/signup?jump=keys">here</a></small>
-    </p> 
-
+    <h1>Get started</h1>
+    <div class="password-control">
+        <label><strong>🔑 Deepgram API key</strong></label>
+        <input id="apiKey" class="password-control-input" type="password" name="apiKey" placeholder="" spellcheck="false" autocomplete="off" autocapitalize="off" required>
+        <i id="passwordToggle" class="password-control-toggle fa-regular fa-eye-slash"></i>
+        <span id="validation"></span>
+    </div>
+    <p><small>If you don't have an API key, you can find one <a id="get-API-key" href="https://console.deepgram.com/signup?jump=keys">here</a></small></p>
+    <button id="optionsSave" type="submit">Save</button>
+    <div class="options-save-message"><p><strong>Your settings have been saved.</strong></p></div>
 </form>
-<!-- <script src="options.ts"></script> -->
+<script src="options.ts" type="module"></script>
+</body>
+</html>
