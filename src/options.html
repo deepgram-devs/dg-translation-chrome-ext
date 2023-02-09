@@ -1,48 +1,209 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Deepgram Transcript and Translation Options</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        body {
+            box-sizing: border-box;
+            font-size: 1rem;
+            line-height: 1.7;
+            background-color: #EEEEEE;
+
+            display: grid;
+            place-items: center;
+
+            --left: 20%
+        }
+
+        form {
+            width: 50%;
+            margin-top: 2rem;
+            padding: 1rem 2rem 2rem;
+            background-color: #ffffff;
+            border-radius: 4px;
+        }
+
+        .options-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+        }
+
+        hr {
+            margin: 0;
+            opacity: 0.2;
+        }
+
+        .options-section {
+            margin: 1rem 0;
+        }
+
+
+        .options-section h3 {
+            margin: 0 0 0.75rem 0;
+            line-height: 1.1;
+            border-bottom: 5px solid rgba(251, 55, 65, 0.8);
+            width: fit-content;
+        }
+
+        .about p {
+            margin-top: 0;
+            font-size: 0.85rem;
+        }
+
         .password-control {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .password-control label {
+            flex-basis: var(--left);
+        }
+
+        .control {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .control-inner {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .control-inner input {
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.7;
             position: relative;
         }
+
+        .key-help-text {
+            margin: 0.25rem 0;
+        }
+
         .password-control-toggle {
             position: relative;
             left: -25px;
         }
+
         .options-save-message {
             display: none;
         }
+
         .options-save-message--active {
-            display: block;
+            display: flex;
+        }
+
+        .options-changes {
+            margin-left: 19%;
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .options-changes button {
+            margin-top: 0.5rem;
+            height: fit-content;
+            padding: 0.25rem 0.5rem;
+
+            font-size: 0.9rem;
+            text-transform: capitalize;
+
+            background: #FB3640;
+            color: #ffffff;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .end-info {
+            width: 50%;
+            text-align: center;
+            color: #b1b1b1;
+            font-size: 0.85rem;
+
+            margin-top: 0.75rem;
+        }
+
+        .end-info p {
+            margin: 0;
+        }
+
+        .end-info a {
+            color: #b1b1b1;
+            margin: 0;
         }
     </style>
 </head>
+
 <body>
-<form id="options-form">
-    <h1>About</h1>
-	<p>
-		Check out the <a href="https://deepgram.com/">repository</a> for more information about this extension. If you want to learn more about how we create this transcription, head over to 
-		<a href="https://github.com/deepgram-devs/dg-translation-chrome-ext">deepgram.com</a>
-		If you have questions or comments about Deepgram or using different technologies with Deepgram, leave us a message on our <a href="https://github.com/deepgram/community/discussions">Community Forum</a>. 
-	</p>
+    <form id="options-form">
+        <div class="options-header">
+            <img src="social-logo.png" src="logo" width="28px" />
+            <h3 class="options-title">Tab Transcription options</h3>
+        </div>
 
-	<hr>
+        <div class="options-section settings">
+            <h3>Settings</h3>
 
-    <h1>Get started</h1>
-    <div class="password-control">
-        <label><strong>🔑 Deepgram API key</strong></label>
-        <input id="apiKey" class="password-control-input" type="password" name="apiKey" placeholder="" spellcheck="false" autocomplete="off" autocapitalize="off" required>
-        <i id="passwordToggle" class="password-control-toggle fa-regular fa-eye-slash"></i>
-        <span id="validation"></span>
+            <div class="password-control">
+                <label><strong>🔑 API key: </strong></label>
+
+                <div class="control">
+                    <div class="control-inner">
+                        <input id="apiKey" type="password" name="apiKey" placeholder="" spellcheck="false"
+                            autocomplete="off" autocapitalize="off" required>
+                        <i id="passwordToggle" class="password-control-toggle fa-regular fa-eye-slash"></i>
+                        <span id="validation"></span>
+                    </div>
+                    <p class="key-help-text"><small>If you don't have an API key, you can find one <a id="get-API-key"
+                                href="https://console.deepgram.com/signup?jump=keys">here</a></small></p>
+                </div>
+            </div>
+
+            <div class="options-changes">
+                <button id="optionsSave" type="submit">Save</button>
+
+                <div class="options-save-message">
+                    <p><strong><small> Your settings have been saved. !
+                            </small> </strong></p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="options-section about">
+            <h3>About</h3>
+
+            <p>
+                Check out the <a href="https://deepgram.com/">repository</a> for more information about this extension.
+                If
+                you want to learn more about how we create this transcription, head over to
+                <a href="https://github.com/deepgram-devs/dg-translation-chrome-ext">deepgram.com</a>
+                If you have questions or comments about Deepgram or using different technologies with Deepgram, leave us
+                a
+                message on our <a href="https://github.com/deepgram/community/discussions">Community Forum</a>.
+            </p>
+        </div>
+    </form>
+
+    <div class="end-info">
+        <p>Version 0.0.1</p>
+        <p>This extension is opensource. <a href="https://github.com/deepgram-devs/dg-translation-chrome-ext" target="_blank">Contribute on GitHub</a></p>
     </div>
-    <p><small>If you don't have an API key, you can find one <a id="get-API-key" href="https://console.deepgram.com/signup?jump=keys">here</a></small></p>
-    <button id="optionsSave" type="submit">Save</button>
-    <div class="options-save-message"><p><strong>Your settings have been saved.</strong></p></div>
-</form>
-<script src="options.ts"></script>
+
+    <script src="options.ts"></script>
 </body>
+
 </html>
