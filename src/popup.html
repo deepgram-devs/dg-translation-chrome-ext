@@ -15,15 +15,6 @@
             display: flex;
             align-items: baseline;
         }
-        .text-control-label {
-            padding-right: 1rem;
-        }
-        .text-control-input {
-            flex-grow: 1;
-            font-size: 1rem;
-            line-height: 1.7;
-            position: relative;
-        }
         .button-controls {
             display: flex;
             outline: none;
@@ -40,10 +31,14 @@
         .button:last-child {
             margin-right: 0;
         }
-        #togglePassword{
-            position: absolute;
-            right: 30px;
-            top: 32px;
+        .help-text {
+            color: rgba(0, 0, 0, 0.75);
+            font-style: italic;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        .help-text a {
+            color: rgba(0, 0, 0, 0.75);
         }
     </style>
 </head>
@@ -51,9 +46,7 @@
 <body>
     <div class="controls">
         <div class="text-control">
-            <label class="text-control-label" for="api-key">API Key</label>
-            <input class="text-control-input" type="password" name="api-key" required disabled id="api-key">
-            <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
+            <p class="help-text"><strong>Note:</strong> If you haven't already, add and save your API key <a href="./options.html" target="_blank">here</a>.</p>
         </div>
         <div class="button-controls">
             <button class="button" button-name="start" id="start">Start Transcription</button>
