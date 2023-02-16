@@ -19,7 +19,7 @@ navigator.mediaDevices.getDisplayMedia({ video: true, audio: true }).then((strea
 
 //create a websocket connection
 
- const socket = new WebSocket('wss://api.deepgram.com/v1/listen?model=general-enhanced&punctuate=true', ['token', apiKey])
+    socket = new WebSocket('wss://api.deepgram.com/v1/listen?model=general-enhanced&punctuate=true', ['token', apiKey])
 
     socket.onopen = () => {
         console.log({ event: 'onopen' })
