@@ -1,6 +1,5 @@
 import { content } from './content-script';
 
-loadApiKey()
 showLatestTranscript()
 
 document.getElementById('start')?.addEventListener('click', async () => {
@@ -24,15 +23,6 @@ chrome.runtime.onMessage.addListener(({ message }) => {
     }
 })
 
-function loadApiKey() {
-    chrome.storage.local.get('key').then(({ key }) => {
-        const apiKeyElem = document.getElementById('api-key') as HTMLInputElement | null
-        if (apiKeyElem) {
-            apiKeyElem.value = key
-        }
-    })
-}
-
 function showLatestTranscript() {
     chrome.storage.local.get("transcript", ({ transcript }) => {
        document.getElementById('transcript').innerHTML = transcript;
@@ -54,12 +44,3 @@ async function getCurrentTab() {
     console.log({tab})
     return tab
 }
-
-const togglePassword = document.getElementById('togglePassword')
-const APIKey = document.getElementById('api-key')
-
-togglePassword?.addEventListener('click', function(){
-    const type = APIKey?.getAttribute('type') === 'password' ? 'text' : 'password'
-    APIKey?.setAttribute('type', type)
-    this.classList.toggle('fa-eye')
-})
